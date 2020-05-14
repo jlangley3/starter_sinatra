@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_14_143640) do
+ActiveRecord::Schema.define(version: 2020_05_14_154042) do
 
   create_table "appointments", force: :cascade do |t|
     t.date "date"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2020_05_14_143640) do
 
   create_table "doctors", force: :cascade do |t|
     t.string "name"
+    t.string "speciality"
+    t.string "biography"
   end
 
   create_table "families", force: :cascade do |t|

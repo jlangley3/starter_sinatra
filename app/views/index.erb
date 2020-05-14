@@ -1,5 +1,10 @@
-    <h1>Welcome to the Doctors Office</h1>
 
+<h1> Here are the doctors we have on file.</h1>
+
+<ul>
+    <% Doctor.all.each do |doctor| %>
     
+        <li><a href="/doctors/<%= doctor.id%>"><%= doctor.name %></a></li>
+    <% end %>
 
-
+</ul>

@@ -1,0 +1,7 @@
+<h1>Dr. <%= @doctor.name %>'s specific page</h1>
+
+<h2>Speciality: <%=@doctor.speciality%></h2>
+
+<p>Biography: <%=@doctor.biography%></p>
+
+<a href="/doctors/<%=@doctor.id%>/make_appointment">Make an appointment with this doctor.</a>
