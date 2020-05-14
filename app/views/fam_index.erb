@@ -1,0 +1,8 @@
+
+
+
+<ol>
+   <% Family.all.each do |fam|%>
+         <li> <a href= "/family/<%=fam.id%>"> <%=fam.name%> </a></li>
+     <%end%>
+</ol>

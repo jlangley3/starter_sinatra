@@ -27,18 +27,32 @@ class ApplicationController < Sinatra::Base
         date = params[:date]
         time = params[:time]
         family_name = Family.find_or_create_by(name: params[:name])
-        binding.pry
-        Appointment.create_or_find_by(date: date, 
+    
+        @appointment = Appointment.find_or_create_by(date: date, 
                            time: time, 
                            doctor_id: doctor_id, 
                            family_id: family_name.id)
         
-        redirect '/doctors/:id/scheduled'
+        redirect "/doctors/#{doctor_id}/scheduled"
     end
 
     get '/doctors/:id/scheduled' do
-
+        doc = Doctor.find(params[:id])
+          @appointment = Appointment.find_by(doctor_id: doc.id)
+         
         erb :scheduled
     end
+
+    get '/families' do
+        
+        erb :fam_index
+    end
+
+    get "/families/:id" do
+        family = Family.find(params[:id])
+        @appointment = Appointment.find_by(family_id: family.id)
+    erb :fam_appointment
+    end
+
 
 end
